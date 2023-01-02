@@ -5,7 +5,7 @@ import { instance } from './makeMarkupModalCard'
 const refs = {
     cardFilm: document.querySelector('.modal-btn'),
     closeBtnCard: document.querySelector('.modal-card-film-close-btn'),
-    modalText: modal.element().querySelector('.modal-text'),
+    // modalText: modal.element().querySelector('.modal-text'),
 };
 
 refs.cardFilm.addEventListener('click', onModalCard);

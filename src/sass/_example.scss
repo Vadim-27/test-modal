@@ -81,6 +81,7 @@ button{
 
 
 .modal-card-film-close-btn-icon {
+  z-index: 999;
   fill: #000000;
   transition: var(--transition-dur-and-func);
 
