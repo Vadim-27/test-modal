@@ -1,18 +1,21 @@
-<!DOCTYPE html>
-<html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Page title</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" 
-    rel="stylesheet">
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
-  </head>
-  <body>
-    <button class="modal-btn">modal-btn</button>
-   
-    <!-- <div class="modal-film-card">
+// import SimpleLightbox from 'simplelightbox';
+const basicLightbox = require('basiclightbox')
+import NewApiFetches from './testApi';
+const newApiFetches = new NewApiFetches();
+newApiFetches
+  .fetchDetailsMovie(76600)
+  .then(data => {
+    console.log('Details ', data);
+  })
+  .catch(error => console.log(error));
+
+
+// export function makeMarkupModal() {
+    
+// }
+export const instance = basicLightbox.create(
+    `
+	<div class="modal-film-card">
       <button type="button" class="modal-card-film-close-btn" data-modal-card-film-close>
         <svg class="modal-card-film-close-btn-icon" width="17" height="17">
           <use href="./images/symbol-arial.svg#close-btn"></use>
@@ -24,7 +27,7 @@
         </p>
       </div>
       <div>
-        <h2 class="name-film">Name Film</h2>
+        <h2 class="name-film">Name Film ${data.original_title}/h2>
         <div class="box-film-params">
           <div>
             <ul class="list-modal">
@@ -93,7 +96,5 @@
         </div>
         
       </div>
-    </div> -->
-    
-  </body>
-</html>
+    </div>
+`)
