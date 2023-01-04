@@ -1,4 +1,5 @@
 // import SimpleLightbox from 'simplelightbox';
+import svg from '../images/symbol-arial.svg';
 const basicLightbox = require('basiclightbox')
 import 'basiclightbox/dist/basicLightbox.min.css';
 import NewApiFetches from './testApi';
@@ -75,7 +76,7 @@ const newApiFetches = new NewApiFetches();
       </div>
      
       
-      <p class="dÐµscription__params">About
+      <p class="discription__params">About
         <span class="items__value">${overview}</span>
       </p>
       
@@ -97,7 +98,21 @@ const renfetch = () => {
     .then(data => {
       console.log('Details ', data);
       const instance = basicLightbox.create(render(data));
-      instance.show();
+        instance.show();
+
+
+        const closeBtnCard = instance.element().querySelector('.modal-card-film-close-btn');
+        closeBtnCard.addEventListener('click', instance.close);
+
+
+        window.addEventListener('keydown', handleKeyPress);
+        function handleKeyPress ({ code }) {
+        if (code === 'Escape' && instance.visible()) {
+        instance.close();
+            }
+        
+};
+
     })
     .catch(error => console.log(error));
 };
